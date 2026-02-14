@@ -1,6 +1,6 @@
 /*
-Body: gradient nền xanh, căn giữa toàn bộ container theo chiều ngang & dọc.
-Container: nền trắng, bo góc, padding 25px, rộng 600px → nơi chứa form, search, bảng.*/
+  Body: gradient nền xanh, căn giữa toàn bộ container theo chiều ngang & dọc.
+  Container: nền trắng, bo góc, padding 25px, rộng 600px → nơi chứa form, search, bảng.*/
 body {
   font-family: Arial;
   background: #fff5f5; /* đỏ nhạt sang trọng */
@@ -8,7 +8,7 @@ body {
   min-height: 100vh;
 
   /*display: flex; justify-content: center; align-items: center; 
-  → căn giữa theo cả chiều ngang và dọc.  */
+    → căn giữa theo cả chiều ngang và dọc.  */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -75,7 +75,7 @@ table {
 }
 
 /* Tạo header màu xanh, chữ trắng
-Zebra row → dễ đọc bảng nhiều dòng */
+  Zebra row → dễ đọc bảng nhiều dòng */
 thead {
   background: #e53935; /* đỏ tươi */
   color: #fff;
@@ -90,20 +90,20 @@ td {
   text-align: center;
 }
 /* display: flex; 
-justify-content: 
-space-between; → căn 2 bên. */
+  justify-content: 
+  space-between; → căn 2 bên. */
 /* .topbar dùng justify-content: space-between 
-→ chữ bên trái + user bên phải */
+  → chữ bên trái + user bên phải */
 .topbar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 60px;
-  background: #e53935; /* đỏ tươi sang trọng */
-  display: flex;
+  background: #e53935;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
   align-items: center;
-  justify-content: space-between; /* 3 phần cách đều nhau */
   padding: 0 20px;
   box-sizing: border-box;
   color: white;
@@ -118,13 +118,14 @@ space-between; → căn 2 bên. */
 
 /* Ảnh logo ở giữa */
 /*.logo-img dùng position: absolute; 
-left:50%; 
-transform:translateX(-50%) → luôn nằm chính giữa topbar, không ảnh hưởng 2 phần còn lại */
+  left:50%; 
+  transform:translateX(-50%) → luôn nằm chính giữa topbar, không ảnh hưởng 2 phần còn lại */
 .logo-img {
-  position: absolute; /* đặt ở giữa topbar */
-  left: 50%;
-  transform: translateX(-50%);
+  justify-self: center;
+  position: static;
+  transform: none;
 }
+
 .logo-img img {
   height: 40px;
   display: block;
@@ -135,6 +136,13 @@ transform:translateX(-50%) → luôn nằm chính giữa topbar, không ảnh h�
   display: flex;
   align-items: center;
   gap: 10px;
+}
+.user-box b {
+  max-width: 140px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .logout-btn {
