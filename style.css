@@ -1,0 +1,176 @@
+/*
+Body: gradient nền xanh, căn giữa toàn bộ container theo chiều ngang & dọc.
+Container: nền trắng, bo góc, padding 25px, rộng 600px → nơi chứa form, search, bảng.*/
+body {
+  font-family: Arial;
+  background: #fff5f5; /* đỏ nhạt sang trọng */
+  /* đảm bảo container luôn nằm giữa màn hình */
+  min-height: 100vh;
+
+  /*display: flex; justify-content: center; align-items: center; 
+  → căn giữa theo cả chiều ngang và dọc.  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  background: #fff;
+  /* khoảng cách bên trong container. */
+  padding: 25px;
+  /* bo tròn, mềm mại. */
+  border-radius: 10px;
+  /* để tránh topbar che phần trên khi scroll. */
+  margin-top: 80px;
+  width: 600px;
+}
+
+.small {
+  width: 320px;
+}
+
+h1,
+h2 {
+  text-align: center;
+  color: #333;
+  font-weight: bold;
+}
+
+input,
+button {
+  width: 100%;
+  /* ô input và nút có khoảng trống bên trong. */
+  padding: 10px;
+  /* khoảng cách giữa các ô input / button. */
+  margin: 8px 0;
+}
+
+button {
+  background: #e53935; /* đỏ tươi */
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  /* con trỏ chuột chuyển thành tay khi hover. */
+  cursor: pointer;
+}
+button:hover {
+  opacity: 0.9;
+}
+
+.logout-btn {
+  width: auto;
+  padding: 6px 12px;
+  font-size: 13px;
+  background: #e74c3c;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+/* Table chiếm 100% container. */
+table {
+  width: 100%;
+  /* các đường viền sát nhau. */
+  border-collapse: collapse;
+  margin-top: 15px;
+}
+
+/* Tạo header màu xanh, chữ trắng
+Zebra row → dễ đọc bảng nhiều dòng */
+thead {
+  background: #e53935; /* đỏ tươi */
+  color: #fff;
+}
+tr:nth-child(even) {
+  background: #f2f2f2;
+}
+th,
+td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+/* display: flex; 
+justify-content: 
+space-between; → căn 2 bên. */
+/* .topbar dùng justify-content: space-between 
+→ chữ bên trái + user bên phải */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  background: #e53935; /* đỏ tươi sang trọng */
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 3 phần cách đều nhau */
+  padding: 0 20px;
+  box-sizing: border-box;
+  color: white;
+  z-index: 10;
+}
+
+/* Chữ logo bên trái */
+.logo-text {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Ảnh logo ở giữa */
+/*.logo-img dùng position: absolute; 
+left:50%; 
+transform:translateX(-50%) → luôn nằm chính giữa topbar, không ảnh hưởng 2 phần còn lại */
+.logo-img {
+  position: absolute; /* đặt ở giữa topbar */
+  left: 50%;
+  transform: translateX(-50%);
+}
+.logo-img img {
+  height: 40px;
+  display: block;
+}
+
+/* User box bên phải */
+.user-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logout-btn {
+  padding: 6px 12px;
+  font-size: 13px;
+  background: #f44336; /* đỏ tươi sáng hơn */
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.logout-btn:hover {
+  opacity: 0.8;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin: 15px 0;
+}
+
+.search-box input {
+  flex: 1; /* input chiếm hết không gian còn lại */
+}
+.search-box button {
+  width: auto;
+  padding: 0 15px;
+}
+
+.logo img {
+  width: 60px;
+  height: 60px; /* chỉnh kích thước ảnh */
+  display: block;
+  position: fixed;
+  justify-content: center; /* căn logo chính giữa */
+  align-items: center;
+  padding: 0 20px;
+}
