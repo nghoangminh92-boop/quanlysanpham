@@ -26,7 +26,12 @@ JSON.stringify(products) chuyển mảng JS → chuỗi JSON để lưu. */
 
 // Kiểm tra đăng nhập
 // ====== LOGIN ======
-
+window.onload = function () {
+  let userBox = document.getElementById("user");
+  if (userBox && currentUser) {
+    userBox.innerText = currentUser;
+  }
+};
 if (!currentUser && location.pathname.includes("index.html")) {
   location.href = "login.html";
 }
