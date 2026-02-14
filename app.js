@@ -49,14 +49,14 @@ function register() {
   let user = document.getElementById("regUser").value.trim();
   let pass = document.getElementById("regPass").value.trim();
 
-  if (!user || !pass) return alert("Vui lòng nhập đầy đủ!");
-
-  if (users.some((u) => u.user === user)) return alert("Tài khoản đã tồn tại!");
+  if (!user || !pass) return alert("必要事項をすべて入力してください！");
+  if (users.some((u) => u.user === user))
+    return alert("このユーザー名はすでに使われています！");
 
   users.push({ user, pass });
   localStorage.setItem("users", JSON.stringify(users));
 
-  alert("Đăng ký thành công!");
+  alert("登録に成功しました！");
   location.href = "login.html";
 }
 
