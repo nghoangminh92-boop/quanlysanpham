@@ -300,8 +300,8 @@ body:has(#themeToggle:checked) table td {
   max-width: 900px;
   margin: 0 auto 15px;
   background: #fff3cd;
-  color: #856404;
-  border-left: 6px solid #ffc107;
+  color: #dd780d;
+  border-left: 6px solid #ec5514;
   padding: 10px 15px;
   border-radius: 8px;
   display: none;

@@ -235,13 +235,22 @@ function searchProduct() {
   // hiển thị
   render(result);
 }
+
+/*
+Biến	Ý nghĩa
+totalProducts	Tổng số loại sản phẩm
+totalQuantity	Tổng số lượng tồn
+totalValue	Tổng tiền của kho
+lowStock	Mảng chứa sản phẩm sắp hết
+*/
 function updateDashboard() {
   let totalProducts = products.length;
   let totalQuantity = 0;
   let totalValue = 0;
   let lowStock = [];
 
-  products.forEach(p => {
+  // forEach() → duyệt từng phần tử trong mảng products
+  products.forEach((p) => {
     totalQuantity += p.quantity;
     totalValue += p.price * p.quantity;
 
@@ -250,19 +259,25 @@ function updateDashboard() {
     }
   });
 
+  /*id	Hiển thị
+totalProducts	Tổng sản phẩm
+totalQuantity	Tổng tồn
+totalValue	Tổng tiền
+lowStockAlert	Cảnh báo */
   let el1 = document.getElementById("totalProducts");
   let el2 = document.getElementById("totalQuantity");
   let el3 = document.getElementById("totalValue");
   let alertBox = document.getElementById("lowStockAlert");
 
+  // innerText là thuộc tính trong JavaScript dùng để lấy hoặc thay đổi nội dung chữ
+  // (text) hiển thị bên trong một phần tử HTML.
   if (el1) el1.innerText = totalProducts;
   if (el2) el2.innerText = totalQuantity;
   if (el3) el3.innerText = totalValue.toLocaleString() + " ¥";
 
   if (alertBox) {
     if (lowStock.length) {
-      alertBox.innerHTML =
-        "⚠ <b>Sắp hết hàng:</b> " + lowStock.join(", ");
+      alertBox.innerHTML = "⚠ <b>在庫僅少:</b> " + lowStock.join(", ");
       alertBox.style.display = "block";
     } else {
       alertBox.style.display = "none";
@@ -272,7 +287,7 @@ function updateDashboard() {
 
 // render bảng khi load trang
 render();
-
+updateDashboard();
 // kiến thức
 /*1️⃣ map()
 Mục đích:
