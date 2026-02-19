@@ -6,7 +6,7 @@ body {
   background: #fff5f5; /* đỏ nhạt sang trọng */
   /* đảm bảo container luôn nằm giữa màn hình */
   min-height: 100vh;
-
+  margin: 0;
   /*display: flex; justify-content: center; align-items: center; 
     → căn giữa theo cả chiều ngang và dọc.  */
   display: flex;
@@ -21,7 +21,7 @@ body {
   /* bo tròn, mềm mại. */
   border-radius: 10px;
   /* để tránh topbar che phần trên khi scroll. */
-  margin-top: 80px;
+  margin: 100px auto 40px; /* auto -> căn giữa ngang */
   width: 600px;
 }
 
@@ -99,11 +99,29 @@ td {
   top: 0;
   left: 0;
   width: 100%;
-  height: 60px;
-  background: #e53935; /* đỏ tươi sang trọng */
+  height: 64px;
+
   display: flex;
   align-items: center;
-  justify-content: space-between; /* 3 phần cách đều nhau */
+  justify-content: center;
+
+  background: #f73f3f;
+  border-bottom: 1px solid #f2f2f2;
+  z-index: 1000;
+}
+
+/* logo ở giữa */
+.topbar .center img {
+  height: 45px;
+}
+
+/* user nằm góc phải */
+.user-box {
+  position: absolute;
+  right: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 /* Chữ logo bên trái */
