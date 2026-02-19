@@ -104,6 +104,7 @@ function render(arr = products) {
       .join("") ghép tất cả thành một chuỗi HTML liền nhau, 
       để gán vào innerHTML. */
     .join("");
+  updateDashboard();
 }
 
 // Thêm sản phẩm mới
@@ -233,6 +234,40 @@ function searchProduct() {
     );
   // hiển thị
   render(result);
+}
+function updateDashboard() {
+  let totalProducts = products.length;
+  let totalQuantity = 0;
+  let totalValue = 0;
+  let lowStock = [];
+
+  products.forEach(p => {
+    totalQuantity += p.quantity;
+    totalValue += p.price * p.quantity;
+
+    if (p.quantity <= 5) {
+      lowStock.push(`${p.name} (${p.quantity})`);
+    }
+  });
+
+  let el1 = document.getElementById("totalProducts");
+  let el2 = document.getElementById("totalQuantity");
+  let el3 = document.getElementById("totalValue");
+  let alertBox = document.getElementById("lowStockAlert");
+
+  if (el1) el1.innerText = totalProducts;
+  if (el2) el2.innerText = totalQuantity;
+  if (el3) el3.innerText = totalValue.toLocaleString() + " ¥";
+
+  if (alertBox) {
+    if (lowStock.length) {
+      alertBox.innerHTML =
+        "⚠ <b>Sắp hết hàng:</b> " + lowStock.join(", ");
+      alertBox.style.display = "block";
+    } else {
+      alertBox.style.display = "none";
+    }
+  }
 }
 
 // render bảng khi load trang
