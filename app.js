@@ -24,52 +24,6 @@ localStorage chỉ lưu được chuỗi (string).
 JSON.stringify(products) chuyển mảng JS → chuỗi JSON để lưu. */
 // Hàm save() sẽ chuyển mảng products thành chuỗi JSON và lưu vào localStorage, để dữ liệu vẫn tồn tại khi bạn tải lại trang hoặc tắt trình duyệt.
 
-// Kiểm tra đăng nhập
-// ====== LOGIN ======
-window.onload = function () {
-  let userBox = document.getElementById("user");
-  if (userBox && currentUser) {
-    userBox.innerText = currentUser;
-  }
-};
-if (!currentUser && location.pathname.includes("index.html")) {
-  location.href = "login.html";
-}
-function login() {
-  let user = document.getElementById("loginUser").value.trim();
-  let pass = document.getElementById("loginPass").value.trim();
-
-  if (!user || !pass) return alert("Vui lòng nhập đầy đủ!");
-
-  let found = users.find((u) => u.user === user && u.pass === pass);
-
-  if (!found) return alert("Sai tài khoản hoặc mật khẩu!");
-
-  localStorage.setItem("currentUser", user);
-  location.href = "index.html";
-}
-
-// ====== REGISTER ======
-function register() {
-  let user = document.getElementById("regUser").value.trim();
-  let pass = document.getElementById("regPass").value.trim();
-
-  if (!user || !pass) return alert("必要事項をすべて入力してください！");
-  if (users.some((u) => u.user === user))
-    return alert("このユーザー名はすでに使われています！");
-
-  users.push({ user, pass });
-  localStorage.setItem("users", JSON.stringify(users));
-
-  alert("登録に成功しました！");
-  location.href = "login.html";
-}
-
-// ====== LOGOUT ======
-function logout() {
-  localStorage.removeItem("currentUser");
-  location.href = "login.html";
-}
 function save() {
   localStorage.setItem("products", JSON.stringify(products));
 }

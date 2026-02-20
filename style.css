@@ -115,15 +115,6 @@ td {
   height: 45px;
 }
 
-/* user nằm góc phải */
-.user-box {
-  position: absolute;
-  right: 20px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 /* Chữ logo bên trái */
 .logo-text {
   font-size: 20px;
@@ -157,16 +148,6 @@ td {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.logout-btn {
-  padding: 6px 12px;
-  font-size: 13px;
-  background: #f44336; /* đỏ tươi sáng hơn */
-  border-radius: 6px;
-  border: none;
-  cursor: pointer;
-  color: white;
 }
 
 .logout-btn:hover {
