@@ -154,14 +154,23 @@ function removeProduct(i) {
 // hàm bán sản phẩm
 
 function sell(i) {
-  // hiện hộp thoại yêu cầu người dùng nhập dữ liệu.
-  // + → chuyển giá trị nhập từ chuỗi → số.
-  let num = +prompt("販売数量を入力してください：");
-  if (!num || num <= 0) return;
-  if (num > products[i].quantity) return alert("在庫が足りません！");
-  // Trừ đi số lượng bán khỏi products[i].quantity.
-  products[i].quantity -= num;
+  let input = prompt("販売数量を入力してください：");
 
+  if (input === null) return; // bấm cancel
+
+  let num = Number(input);
+
+  if (isNaN(num) || num <= 0) {
+    alert("正しい数量を入力してください！");
+    return;
+  }
+
+  if (num > products[i].quantity) {
+    alert("在庫が足りません！");
+    return;
+  }
+
+  products[i].quantity -= num;
   save();
   render();
 }
