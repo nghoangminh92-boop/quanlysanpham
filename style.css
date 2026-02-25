@@ -43,6 +43,9 @@ button {
   padding: 10px;
   /* khoảng cách giữa các ô input / button. */
   margin: 8px 0;
+  height: 40px;
+  /* căn chỉnh giao diện */
+  box-sizing: border-box;
 }
 
 button {
@@ -55,15 +58,6 @@ button {
 }
 button:hover {
   opacity: 0.9;
-}
-
-.logout-btn {
-  width: auto;
-  padding: 6px 12px;
-  font-size: 13px;
-  background: #e74c3c;
-  border-radius: 6px;
-  transition: 0.3s;
 }
 
 /* Table chiếm 100% container. */
