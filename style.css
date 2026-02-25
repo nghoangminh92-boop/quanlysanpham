@@ -83,6 +83,12 @@ td {
   padding: 8px;
   text-align: center;
 }
+/* Chỉ cột 商品名 được xuống dòng → giao diện đẹp & gọn */
+td:nth-child(2) {
+  max-width: 150px;
+  white-space: normal;
+  word-break: break-word;
+}
 /* display: flex; 
   justify-content: 
   space-between; → căn 2 bên. */
